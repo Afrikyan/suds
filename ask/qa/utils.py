@@ -20,5 +20,4 @@ def paginate(request, qs):
     except EmptyPage:
         page = paginator.page(paginator.num_pages)
     return paginator, page
-Status API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
+

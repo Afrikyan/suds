@@ -80,6 +80,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR  + 'templates/',],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            # ... some options here ...
+        },
+    },
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
