@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls import url
+from django.conf.urls import include, url
 
 from . import views
 
-
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^login/$', views.my_login, name='login'),
-    url(r'^signup/$', views.signup, name='signup'),
-    url(r'^question/(?P<id>\d+)/$', views.question, name='question'),
-    url(r'^ask/$', views.ask, name='ask'),
-    url(r'^popular/$', views.popular, name='popular'),
-    url(r'^new/$', views.index, name='new'),
-    url(r'^answer/$', views.answer, name='answer'),
+
+    url(r'^$', views.home_page , name='index'),
+    url(r'^login/.*$', views.user_login, name='login'),
+    url(r'^signup/.*$', views.user_signup, name='signup'),
+    url(r'^question/(?P<id>[0-9]+)/$', views.question_details, name='question'),
+    url(r'^ask/.*$', views.add_question, name='ask'),
+    url(r'^popular/.*$', views.popular_questions, name='popular'),
+    #url(r'^new/.*$', 'qa.views.test', name='new'),
 ]

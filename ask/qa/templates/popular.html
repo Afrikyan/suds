@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+	Popular
+{% endblock %}
+
+
+{% block content %}
+{% if sorted_questions %}
+<ul>
+	{% for question in sorted_questions %}
+	<li><a href="question/{{ question.id }}">{{ question.title }}</a></li>
+	{% endfor %}
+</ul>
+
+
+<div class="pagination">
+	<span class="step-links">
+	{% if sorted_questions.has_previous %}
+		<a href="?page={{ sorted_questions.previous_page_number }}">previous</a>
+		{% endif %}
+
+		<span class="current">
+			Page {{ sorted_questions.number }} of {{ sorted_questions.paginator.num_pages }}
+		</span>
+
+		{% if sorted_questions.has_next %}
+		<a href="?page={{ sorted_questions.next_page_number }}">next</a>
+		{% endif %}
+	</span>
+</div>
+
+{% endif %}
+{% endblock %}
+
