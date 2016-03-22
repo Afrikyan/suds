@@ -2,7 +2,11 @@
 
 {% for object in page.object_list %}
 
-<a href="{{ object.get_absolute_url }}"><h2>{{ object.title }}</h2></a>
+
+<h4>{{object.id}}</h4> <br />
+{{object.title}} <br />
+{{object.text}} <br />
+<a href="{{ object.get_absolute_url }}">{{ object.title }}</a>
 
 {% endfor %}
 
