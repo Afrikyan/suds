@@ -13,9 +13,9 @@ from django.utils.timezone import now
 class Question(models.Model):
     title = models.CharField(max_length=255)
     text = models.TextField()
-    added_at = models.DateTimeField(auto_now_add=True, default=now)
+    added_at = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(default=0)
-    author = models.ForeignKey(User, default=0)
+    author = models.ForeignKey(User, default=1)
     likes = models.ManyToManyField(User, related_name='questions', blank=True)
     def get_absolute_url(self):
         return reverse('question', kwargs={"id": self.id})
@@ -24,6 +24,6 @@ class Question(models.Model):
 
 class Answer(models.Model):
     text = models.TextField()
-    added_at = models.DateTimeField(auto_now_add=True, default=now)
-    question = models.ForeignKey(Question, default=0)
+    added_at = models.DateTimeField(auto_now_add=True)
+    question = models.ForeignKey(Question)
     author = models.ForeignKey(User, default=1)
