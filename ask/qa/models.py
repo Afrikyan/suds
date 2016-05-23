@@ -3,8 +3,15 @@ from django.contrib.auth.models import User
 from django.utils.timezone import now
 from django.core.urlresolvers import reverse
 
-
+class QuestionManager(models.Manager):                                          
+        def new():                                                              
+                pass                                                            
+        def popular():                                                          
+                pass 
+            
 class Question(models.Model):
+    class Question(models.Model):                                                   
+        objects = QuestionManager() 
     title = models.CharField(max_length=200)
     text = models.TextField()
     added_at = models.DateTimeField(auto_now=True,default=now())
